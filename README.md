@@ -28,7 +28,6 @@
 ```
 .
 ├── ERD/                     # ER 圖相關文件與資源
-
 ├── Final project/           # 後端 Node.js / TypeScript 專案
 │   ├── src/                 # 原始碼
 │   ├── node_modules/        # (通常不提交到 Git)
