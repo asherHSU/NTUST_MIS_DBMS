@@ -35,15 +35,12 @@
 ├── ERD/                     # ER 圖相關文件與資源
 ├── Final project/           # 後端 Node.js / TypeScript 專案
 │   ├── src/                 # 原始碼
-│   ├── node_modules/        # (通常不提交到 Git)
-│   ├── .env                 # (不提交到 Git - 包含環境變數)
 │   ├── ormconfig.json       # TypeORM 配置
 │   ├── package.json         # 專案依賴與腳本
 │   └── ...
 ├── React/my-solar-panel-app/ # 前端 React 專案
 │   ├── public/
 │   ├── src/                 # 原始碼
-│   ├── node_modules/        # (通常不提交到 Git)
 │   ├── .gitignore
 │   ├── package.json         # 專案依賴與腳本
 │   └── ...
