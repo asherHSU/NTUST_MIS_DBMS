@@ -25,7 +25,7 @@
     * GitHub
 
 ## 專案結構 (Project Structure)
-
+```
 .
 ├── ERD/                     # ER 圖相關文件與資源
 
@@ -45,6 +45,7 @@
 │   └── ...
 ├── 書面報告/                 # 包含 PDF 報告、SQL 腳本、圖表、Excel 等
 └── README.md                # 本文件
+```
 
 
 ## 環境設定與安裝 (Setup & Installation)
