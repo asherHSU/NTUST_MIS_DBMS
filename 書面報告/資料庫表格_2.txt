@@ -1,0 +1,51 @@
+1.太陽能板 (SolarPanel):
+板材ID (PanelID, 主鍵) - 每個太陽能板的唯一識別碼。
+型號 (Model) - 太陽能板的廠牌和型號。
+安裝位置 (Location) - 例如：A 棟屋頂、B 棟 5 樓陽台。
+狀態 (Status) - 例如：運行中、故障、維護中。
+面積 (Area) - 太陽能板的面積，影響發電量。
+額定功率 (RatedPower) - 太陽能板的最大輸出功率。
+
+2.維護記錄 (MaintenanceRecord):
+記錄ID (RecordID, 主鍵)
+板材ID (PanelID, 外鍵) - 關聯到 "太陽能板" 實體。
+維護日期 (MaintenanceDate)
+維護人員 (Maintainer) - 可以是維護人員的 ID 或姓名，需要根據你的 "用戶" 實體設計來決定。
+問題描述 (Description)
+維護結果 (Result) - 例如：已修復、更換零件、待觀察。
+
+3.發電數據 (PowerGenerationData):
+數據ID (DataID, 主鍵)
+板材ID (PanelID, 外鍵)
+時間戳 (Timestamp) - 記錄數據產生的精確時間。
+電壓 (Voltage)
+電流 (Current)
+功率 (Power) - 實時功率。
+發電量 (Energy) - 累計發電量，可以是每小時、每天或每月的累計值。
+環境溫度 (Temperature) - 可以記錄環境溫度，用於分析溫度對發電量的影響。
+日照強度 (Irradiance) - 可以記錄日照強度，用於分析日照對發電量的影響。
+
+4.用戶 (User):
+用戶ID (UserID, 主鍵)
+用戶名 (Username)
+密碼 (Password)
+角色 (Role) - 例如：管理員、維護人員、住戶/員工。
+姓名 (Name)
+聯繫方式 (Contact) - 例如：電話號碼、Email 地址。
+
+5.報警 (Alarm):
+報警ID (AlarmID, 主鍵)
+板材ID (PanelID, 外鍵)
+報警時間 (AlarmTime)
+報警類型 (AlarmType) - 例如：低電壓、過流、通訊故障。
+處理狀態 (Status) - 例如：未處理、已處理、已忽略。
+處理人員 (Handler) - 可以是維護人員的 ID 或姓名。
+處理時間 (HandleTime)
+處理結果 (HandleResult) - 例如：已修復、需要進一步檢查。
+
+關係和基數:
+1.太陽能板 1:N 維護記錄: 一個太陽能板可以有多個維護記錄。
+2.太陽能板 1:N 發電數據: 一個太陽能板可以產生多條發電數據。
+3.太陽能板 1:N 報警: 一個太陽能板可以觸發多個報警。
+4.用戶 1:N 太陽能板: 一個用戶可以查看多個太陽能板的數據 (例如管理員可以查看所有太陽能板，住戶只能查看自己房屋的)。
+5.維護人員 M:N 報警: 一個維護人員可以處理多個報警，一個報警也可以由多個維護人員處理 (例如多人協作處理)。 注意： M:N 關係需要建立一個新的關聯表來表示，例如 "AlarmHandling"，包含 AlarmID 和 HandlerID 作為外鍵。
